@@ -74,8 +74,11 @@
                     </div>
                     <div class="col-12 mb-2">
                         <div class="form-group">
-                            <label>Status</label>
-                            <input type="text" class="form-control" v-model="crud.status">
+                            <label for="options">Status</label>
+                            <select v-model="crud.status" id="options" class="form-select">
+                                <option disabled value="">Select...</option>
+                                <option v-for="option in options" :key="option" :value="option">{{ option }}</option>
+                            </select>
                         </div>
                     </div>
                 </div>
@@ -105,6 +108,7 @@ export default {
                 status:""
             },
             id:"",
+            options: ['Active', 'Inactive'],
         }
     },
     mounted(){
